@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.guitar.common.mapper.UserMapper">
+    <select id="queryUserList" parameterType="com.guitar.common.po.UserEntity" resultType="com.guitar.common.po.UserEntity">
+    SELECT 
+              id   ,
+              user_name,
+              pwd    ,
+              phone ,
+              salt ,
+              level ,
+              role_id,
+              acount ,
+              sex ,
+              email ,
+              nick_name
+        FROM user
+        WHERE 1 = 1 
+
+               <if test="id != null">
+                    AND id = #{id}
+               </if>
+
+               <if test="userName != null">
+                    AND user_name = #{userName}
+               </if>
+
+               <if test="pwd != null">
+                    AND pwd = #{pwd}
+               </if>
+
+               <if test="phone != null">
+                    AND phone = #{phone}
+               </if>
+
+               <if test="salt != null">
+                    AND salt = #{salt}
+               </if>
+
+               <if test="level != null">
+                    AND level = #{level}
+               </if>
+
+               <if test="roleId != null">
+                    AND role_id = #{roleId}
+               </if>
+
+               <if test="acount != null">
+                    AND acount = #{acount}
+               </if>
+
+               <if test="sex != null">
+                    AND sex = #{sex}
+               </if>
+
+               <if test="email != null">
+                    AND email = #{email}
+               </if>
+
+               <if test="nickName != null">
+                    AND nick_name = #{nickName}
+               </if>
+    
+    </select>
+
+	
+	
+</mapper>
